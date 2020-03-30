@@ -1,0 +1,14 @@
+﻿@model Test
+@if (this.ViewContext.FormContext == null)
+{
+    this.ViewContext.FormContext = new FormContext();
+}
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col">
+            <input type="number" asp-for="TestNumber" />
+            <input type="submit" id="postTest" value="submit" />
+        </div>
+    </div>
+}

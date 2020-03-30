@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div id="partialViewContainer">
+
+    </div>
+</div>
+@section scripts{ 
+<script>
+    $(document).ready(function () {
+        $("#partialViewContainer").load("/Home/ShowEdit");
+      
+    });
+    $(document).on("click", "#showEditMode", function () {
+        $("#partialViewContainer").load("/Home/Edit");
+    });
+
+    $(document).on("click", "#postTest", function () {
+        $.ajax({
+            type: "POST",
+            //"/ClientFacilities/Index",
+            url: 'Home/Edit',
+            //"id= " + orgId,
+            data: "id=9",
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                debugger;
+                alert("Success");
+                //$(elementIdtoFill).html(response);
+
+            },
+            complete: function () {
+                debugger;
+                alert("Complete");
+
+            },
+            failure: function (response) {
+                debugger;
+                // alert(response.responseText);
+            },
+            error: function (response) {
+                debugger;
+                //alert(response.responseText);
+            }
+        });
+    });
+</script>
+}

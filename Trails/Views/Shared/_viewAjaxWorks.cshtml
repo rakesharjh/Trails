@@ -1,0 +1,12 @@
+﻿@model Test
+@if (this.ViewContext.FormContext == null)
+{
+    this.ViewContext.FormContext = new FormContext();
+}
+
+    <div class="row">
+        <div class="col">
+            @Html.DisplayFor(x => x.TestNumber);
+            <input type="submit" value="Test" id="showEditMode"/>
+        </div>
+    </div>
